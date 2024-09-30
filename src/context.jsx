@@ -5,6 +5,7 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 
 export const AppProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -20,7 +21,7 @@ export const AppProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    // get usr data from firestore
+    // get user data from firestore
     if (user) {
       const getUserData = async () => {
         try {
@@ -28,7 +29,7 @@ export const AppProvider = ({ children }) => {
           const docSnap = await getDoc(docRef);
           if (docSnap.exists()) {
             const userData = docSnap.data();
-            setUser((prev) => ({ ...prev, ...userData }));
+            setUserData(userData);
           }
           else{
             // create user data in firestore

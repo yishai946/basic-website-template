@@ -1,22 +1,22 @@
-import {
-  HomeOutlined,
-  SettingOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
-import { Layout, Menu } from "antd";
 import React from "react";
 import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
   Link,
   Navigate,
-  Route,
-  BrowserRouter as Router,
-  Routes,
 } from "react-router-dom";
-import { useAppContext } from "./context";
-import AnimeList from "./pages/AnimeList";
+import { Layout, Menu } from "antd";
+import {
+  HomeOutlined,
+  VideoCameraOutlined,
+  SettingOutlined,
+} from "@ant-design/icons";
 import Home from "./pages/Home";
-import Login from "./pages/Login";
+import AnimeList from "./pages/AnimeList";
 import Settings from "./pages/Settings";
+import Login from "./pages/Login";
+import { useAppContext } from "./context";
 import Signup from "./pages/Signup";
 const { Header, Content, Footer } = Layout;
 

@@ -7,9 +7,9 @@ const Settings = () => {
   const { setUser } = useAppContext();
 
   const handleLogout = () => {
-    auth.signOut();
-    localStorage.removeItem("user");
     setUser(null);
+    localStorage.removeItem("user");
+    auth.signOut();
   }
 
   return (
