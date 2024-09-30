@@ -1,0 +1,47 @@
+html,
+body {
+  height: 100vh;
+  margin: 0;
+}
+
+.layout {
+  min-height: 100vh; /* Full height of the viewport */
+  display: flex;
+  flex-direction: column; /* Allow column layout */
+}
+
+.content {
+  flex: 1; /* Makes the content area take up available space */
+}
+
+/* Placeholder for the logo */
+.logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 20px;
+  line-height: 31px;
+  text-align: center;
+}
+
+/* Site content styling */
+.site-layout-content {
+  padding: 24px;
+  min-height: 280px; /* Ensures there's a minimum height for content */
+  background: transparent; /* Set background to transparent */
+}
+
+/* Optionally remove background from the Content component */
+.ant-layout-content {
+  background: transparent !important; /* Force transparency */
+}
+
+.center-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
