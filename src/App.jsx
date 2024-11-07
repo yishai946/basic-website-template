@@ -7,16 +7,15 @@ import {
   Navigate,
 } from "react-router-dom";
 import { Layout, Menu } from "antd";
-import {
-  HomeOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
+import { HomeOutlined, SettingOutlined } from "@ant-design/icons";
 import Home from "./pages/Home";
 import Settings from "./pages/Settings";
 import Login from "./pages/Login";
 import { useAppContext } from "./context";
 import Signup from "./pages/Signup";
-const { Header, Content} = Layout;
+import "./styles/App.css"; // Import the CSS file
+
+const { Header, Content } = Layout;
 
 const AppRoutes = () => {
   const { user } = useAppContext();
@@ -58,19 +57,21 @@ const App = () => {
 
   return (
     <Router>
-      <Layout className="layout" style={{backgroundColor: "white"}}>
-        <Header>
+      <Layout className="layout">
+        <Header className="header">
+          <div className="logo">MyApp</div>
           <Menu
-            theme="dark"
+            theme="light"
             mode="horizontal"
             defaultSelectedKeys={["1"]}
             items={user ? menuItems : menuItemsNoUser}
-            style={{ flex: 1 }}
+            className="menu"
+            style={{ flex: 1, minWidth: 0, justifyContent: "flex-end" }}
           />
         </Header>
 
-        <Content style={{ padding: "0 50px", flex: 1 }}>
-          <div className="site-layout-content" style={{ marginTop: "50px" }}>
+        <Content className="content">
+          <div className="site-layout-content">
             <AppRoutes />
           </div>
         </Content>

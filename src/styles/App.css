@@ -1,42 +1,57 @@
-html,
-body {
-  height: 100vh;
-  margin: 0;
-}
-
-.layout {
-  min-height: 100vh; /* Full height of the viewport */
+/* Header */
+.header {
+  background-color: transparent;
+  padding: 0 50px;
   display: flex;
-  flex-direction: column; /* Allow column layout */
+  justify-content: space-between;
+  align-items: center;
 }
 
-.content {
-  flex: 1; /* Makes the content area take up available space */
-}
-
-/* Placeholder for the logo */
 .logo {
-  float: left;
-  width: 120px;
-  height: 31px;
-  margin: 16px 24px 16px 0;
-  background: rgba(255, 255, 255, 0.3);
-  color: white;
-  font-size: 20px;
-  line-height: 31px;
-  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #1890ff;
 }
 
-/* Site content styling */
+/* Menu */
+.menu {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap; /* Prevent items from wrapping */
+}
+
+.ant-menu-item {
+  padding: 0 20px; /* Add horizontal padding for spacing */
+}
+
+.ant-menu-horizontal {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: flex;
+    justify-content: flex-start; /* Align items to the left for smaller screens */
+  }
+}
+
+/* Content */
+.content {
+  padding: 20px 50px;
+  min-height: 100vh;
+}
+
 .site-layout-content {
-  padding: 24px;
-  min-height: 280px; /* Ensures there's a minimum height for content */
-  background: transparent; /* Set background to transparent */
-}
-
-/* Optionally remove background from the Content component */
-.ant-layout-content {
-  background: transparent !important; /* Force transparency */
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  text-align: center;
 }
 
 .center-div {

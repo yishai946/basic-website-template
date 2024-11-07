@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div className="center-div">
       <h1>Home</h1>
-      <h3>Track your animes all the time from anywhere in the world</h3>
+      <h3>Hello</h3>
       {!user && (
         <Button type="primary" href="/login" size="large">
           Login
