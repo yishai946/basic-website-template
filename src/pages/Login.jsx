@@ -13,6 +13,11 @@ const Login = () => {
     try {
       const res = await signInWithEmailAndPassword(auth, email, password);
       const user = res.user;
+      // check if user is verified
+      if (!user.emailVerified) {
+        alert("Please verify your email address.");
+        return;
+      }
       const userData = {
         email: user.email,
         name: user.displayName,

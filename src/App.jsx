@@ -9,16 +9,14 @@ import {
 import { Layout, Menu } from "antd";
 import {
   HomeOutlined,
-  VideoCameraOutlined,
   SettingOutlined,
 } from "@ant-design/icons";
 import Home from "./pages/Home";
-import AnimeList from "./pages/AnimeList";
 import Settings from "./pages/Settings";
 import Login from "./pages/Login";
 import { useAppContext } from "./context";
 import Signup from "./pages/Signup";
-const { Header, Content, Footer } = Layout;
+const { Header, Content} = Layout;
 
 const AppRoutes = () => {
   const { user } = useAppContext();
@@ -28,7 +26,6 @@ const AppRoutes = () => {
       <Route path="/" element={<Home />} />
       {user ? (
         <>
-          <Route path="/anime-list" element={<AnimeList />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="*" element={<Navigate to="/" />} />
         </>
@@ -44,17 +41,12 @@ const AppRoutes = () => {
 };
 
 const App = () => {
-  const { user, setUser } = useAppContext();
+  const { user } = useAppContext();
 
   const menuItems = [
     { key: "1", icon: <HomeOutlined />, label: <Link to="/">Home</Link> },
     {
       key: "2",
-      icon: <VideoCameraOutlined />,
-      label: <Link to="/anime-list">Anime List</Link>,
-    },
-    {
-      key: "3",
       icon: <SettingOutlined />,
       label: <Link to="/settings">Settings</Link>,
     },

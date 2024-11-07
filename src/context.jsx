@@ -30,8 +30,7 @@ export const AppProvider = ({ children }) => {
           if (docSnap.exists()) {
             const userData = docSnap.data();
             setUserData(userData);
-          }
-          else{
+          } else {
             // create user data in firestore
             await setDoc(doc(db, "users", user.uid), {
               email: user.email,

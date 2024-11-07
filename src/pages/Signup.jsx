@@ -4,12 +4,12 @@ import { useAppContext } from "../context";
 import GoogleButton from "../components/GoogleButton";
 import "../styles/App.css";
 import { auth, db } from "../../firebaseConfig";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile, sendEmailVerification } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { Spin } from "antd";
 
 const Signup = () => {
-  const { setUser, loading, setLoading } = useAppContext();
+  const { loading, setLoading } = useAppContext();
 
   const handleSignup = async (email, password, name) => {
     try {
@@ -17,17 +17,15 @@ const Signup = () => {
       const res = await createUserWithEmailAndPassword(auth, email, password);
       const user = res.user;
       await updateProfile(user, { displayName: name });
-      const userData = {
-        email: user.email,
-        name: user.displayName,
-        uid: user.uid,
-      };
+      await sendEmailVerification(user);
+      // alert the user to verify their email
+      alert("Please verify your email address.");
       await setDoc(doc(db, "users", user.uid), {
         email: user.email,
         name: user.displayName,
       });
-      localStorage.setItem("user", JSON.stringify(userData));
-      setUser(userData);
+      // navigate the user to the login page
+      window.location.href = "/";
     } catch (error) {
       console.error(error);
     } finally {
